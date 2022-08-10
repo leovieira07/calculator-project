@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #1d252b, #2b9fff);
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    /* Para alinhar na vertical o heigh dele tem que ser: 100vh */
+    min-height: 100vh;
+    /* Para deixar o grid com 4 colunas de 100px */
+    grid-template-columns: repeat(4, 100px);
+    /* Para deixar o grid com 5 linhas de 100px - minmax para deixar a largura da linha automática caso precise */
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.grid-container > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 0.01vh solid #151515;
+    outline: none;
+    background-color: #111;
+    color: #eee;
+}
+
+.grid-container > button:hover {
+    background: #141414;
+}
+
+.grid-container > .operator {
+    background: #2b9fff75;
+    border: 0.01rem solid #2b9fff70;
+    border-left: #171717;
+}
+
+.grid-container > .operator:hover {
+    background: #47acff75;
+}
+
+.grid-container > .span-two {
+    /* Para os elementos se expandirem em 2 colunas */
+    grid-column: span 2;
+}
+
+.grid-container > .output {
+    /* Para os elementos se expandirem por completo em uma linha */
+    grid-column: 1 / -1;
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+    /* Para que o texto não quebre para fora da div quando ecxeder o limite de caracteres  */
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.grid-container > .output > .previous-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.grid-container > .output > .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
